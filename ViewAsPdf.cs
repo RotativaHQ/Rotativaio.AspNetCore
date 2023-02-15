@@ -353,12 +353,12 @@ namespace Rotativaio.AspNetCore
             }
 
             // replace href and src attributes with full URLs
-            var apiKey = RotativaHqConfiguration.RotativaHqApiKey;
+            var apiKey = RotativaIoConfiguration.RotativaIoApiKey;
             if (apiKey == null)
             {
                 throw new InvalidOperationException("Apikey not defined.");
             }
-            var client = new RotativaHqClient(apiKey);
+            var client = new RotativaIoClient(apiKey);
             var contentDisposition = this.ShowInline ? "inline" : "";
             var fileUrl = client.GetPdfUrl(context.HttpContext, GetConvertOptions(), html.ToString(), this.FileName, header.ToString(), footer.ToString(), contentDisposition);
             return fileUrl;

@@ -71,11 +71,11 @@ namespace Rotativaio.AspNetCore
             return base.SendAsync(request, cancellationToken);
         }
     }
-    public class RotativaHqClient
+    public class RotativaIoClient
     {
         string apiKey;
 
-        public RotativaHqClient(string apiKey)
+        public RotativaIoClient(string apiKey)
         {
             this.apiKey = apiKey;
         }
@@ -203,7 +203,7 @@ namespace Rotativaio.AspNetCore
 
         protected HttpRequestMessage CreateRawRequest(string url, string mthv, HttpMethod method)
         {
-            var apiUrl = RotativaHqConfiguration.RotativaHqUrl;
+            var apiUrl = RotativaIoConfiguration.RotativaIoUrl;
             if (apiUrl == null)
             {
                 throw new InvalidOperationException("Endpoint URL not defined.");

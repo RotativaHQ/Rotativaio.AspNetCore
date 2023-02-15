@@ -4,25 +4,25 @@ using System.Text;
 
 namespace Rotativaio.AspNetCore
 {
-    public static class RotativaHqConfiguration
+    public static class RotativaIoConfiguration
     {
-        private static string _rotativaHqUrl;
+        private static string _rotativaIoUrl;
         private static string _rotativaApiKey;
-        internal static string RotativaHqUrl
+        internal static string RotativaIoUrl
         {
             get
             {
-                if (string.IsNullOrEmpty(_rotativaHqUrl))
+                if (string.IsNullOrEmpty(_rotativaIoUrl))
                 {
 #if NET45
                     _rotativaHqUrl = System.Configuration.ConfigurationManager.AppSettings["RotativaHqUrl"];
 #endif
                 }
-                return _rotativaHqUrl;
+                return _rotativaIoUrl;
             }
         }
 
-        internal static string RotativaHqApiKey
+        internal static string RotativaIoApiKey
         {
             get
             {
@@ -36,12 +36,12 @@ namespace Rotativaio.AspNetCore
             }
         }
 
-        public static void SetRotativaHqUrl(string newRotativaHqUrl)
+        public static void SetRotativaIoUrl(string newRotativaHqUrl)
         {
-            _rotativaHqUrl = newRotativaHqUrl;
+            _rotativaIoUrl = newRotativaHqUrl;
         }
 
-        public static void SetRotativaHqApiKey(string newRotativaHqApiKey)
+        public static void SetRotativaIoApiKey(string newRotativaHqApiKey)
         {
             _rotativaApiKey = newRotativaHqApiKey;
         }
