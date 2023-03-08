@@ -3,11 +3,10 @@
 ## Rotativa.io client for .Net 6
 Rotativa.io client for Asp.Net Core on .Net 6
 
-To configure, in Startup.cs add:
+To configure, in Program.cs add:
 
 ```csharp
-RotativaIoConfiguration.SetRotativaIoApiKey("<YOUR KEY>");
-RotativaIoConfiguration.SetRotativaIoUrl("<YOUR ENDPOINT>");
+builder.Services.AddRotativaIo("<YOUR ENDPOINT>", "<YOUR KEY>");
 ```
 
 Please give feedback!
