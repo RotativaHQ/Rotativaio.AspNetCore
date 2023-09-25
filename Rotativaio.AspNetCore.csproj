@@ -7,15 +7,15 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Rotativaio.AspNetCore</PackageId>
-		<PackageVersion>1.3.1</PackageVersion>
+		<PackageVersion>1.4.0</PackageVersion>
 		<Authors>Giorgio Bozio</Authors>
 		<Description>Rotativa.io client for Asp.Net Core</Description>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>ServiceCollection extension</PackageReleaseNotes>
+		<PackageReleaseNotes>ContentDisposition to allow inline PDF</PackageReleaseNotes>
 		<Copyright>Copyright 2023 (c) Viva Software di Bozio Giorgio. All rights reserved.</Copyright>
 		<PackageTags>PDF AspNetCore</PackageTags>
 		<NeutralLanguage />
-		<Version>1.3.1</Version>
+		<Version>1.4.0</Version>
 		<PackageProjectUrl>https://rotativa.io/</PackageProjectUrl>
 		<PackageLicense>MIT</PackageLicense>
 		<RepositoryUrl>https://github.com/RotativaHQ/Rotativaio.AspNetCore.git</RepositoryUrl>

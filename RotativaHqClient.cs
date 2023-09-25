@@ -113,7 +113,8 @@ namespace Rotativaio.AspNetCore
                 Id = Guid.NewGuid(),
                 Filename = fileName,
                 Switches = switches,
-                HtmlAssets = assets
+                HtmlAssets = assets,
+                ContentDisposition = contentDisposition
             };
             string gzipIt = "1";
             //if (HttpContext.Current != null && HttpContext.Current.Request.IsLocal && gzipIt == null)
