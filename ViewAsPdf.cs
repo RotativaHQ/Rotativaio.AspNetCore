@@ -90,6 +90,8 @@ namespace Rotativaio.AspNetCore
         [OptionFlag("-g")]
         public bool IsGrayScale { get; set; }
 
+        public bool PdfA { get; set; }
+
         /// <summary>
         /// Use this if you need another switches that are not currently supported by Rotativa.
         /// </summary>
@@ -360,7 +362,7 @@ namespace Rotativaio.AspNetCore
             }
             var client = new RotativaIoClient(apiKey);
             var contentDisposition = this.ShowInline ? "inline" : "";
-            var fileUrl = client.GetPdfUrl(context.HttpContext, GetConvertOptions(), html.ToString(), this.FileName, header.ToString(), footer.ToString(), contentDisposition);
+            var fileUrl = client.GetPdfUrl(context.HttpContext, GetConvertOptions(), html.ToString(), this.FileName, header.ToString(), footer.ToString(), contentDisposition, this.PdfA);
             return fileUrl;
 
         }

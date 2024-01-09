@@ -80,7 +80,7 @@ namespace Rotativaio.AspNetCore
             this.apiKey = apiKey;
         }
 
-        public string GetPdfUrl(HttpContext context, string switches, string html, string fileName = "", string header = "", string footer = "", string contentDisposition = "")
+        public string GetPdfUrl(HttpContext context, string switches, string html, string fileName = "", string header = "", string footer = "", string contentDisposition = "", bool pdfA = false)
         {
             var webRoot = string.Format("{0}://{1}{2}",
                 context.Request.Scheme,
@@ -114,7 +114,8 @@ namespace Rotativaio.AspNetCore
                 Filename = fileName,
                 Switches = switches,
                 HtmlAssets = assets,
-                ContentDisposition = contentDisposition
+                ContentDisposition = contentDisposition,
+                PdfA = pdfA
             };
             string gzipIt = "1";
             //if (HttpContext.Current != null && HttpContext.Current.Request.IsLocal && gzipIt == null)

@@ -22,5 +22,8 @@ namespace Rotativaio.AspNetCore
 
         [ProtoMember(5)]
         public string ContentDisposition { get; set; }
+
+        [ProtoMember(6)]
+        public bool PdfA { get; set; }
     }
 }
