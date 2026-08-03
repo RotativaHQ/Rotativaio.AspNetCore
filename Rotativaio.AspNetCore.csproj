@@ -24,6 +24,13 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<Compile Remove="smoke-test/**;smoke-test-netfx/**" />
+		<Content Remove="smoke-test/**;smoke-test-netfx/**" />
+		<None Remove="smoke-test/**;smoke-test-netfx/**" />
+		<EmbeddedResource Remove="smoke-test/**;smoke-test-netfx/**" />
+	</ItemGroup>
+
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
