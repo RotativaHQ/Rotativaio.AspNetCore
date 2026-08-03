@@ -25,7 +25,7 @@ jobs:
             8.0.x
 
       - name: Pack Rotativaio.AspNetCore
-        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg
+        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg -p:GeneratePackageOnBuild=false
 
       - name: Add local package source
         run: dotnet nuget add source ${{ github.workspace }}/nupkg -n local-rotativaio
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Pack Rotativaio.AspNetCore
-        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg
+        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg -p:GeneratePackageOnBuild=false
 
       - name: Add local package source
         run: dotnet nuget add source ${{ github.workspace }}\nupkg -n local-rotativaio
