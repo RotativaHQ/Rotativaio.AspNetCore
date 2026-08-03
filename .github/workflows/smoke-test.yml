@@ -1,0 +1,61 @@
+name: Smoke test package
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install .NET SDKs
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            3.1.x
+            5.0.x
+            6.0.x
+            7.0.x
+            8.0.x
+
+      - name: Pack Rotativaio.AspNetCore
+        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg
+
+      - name: Add local package source
+        run: dotnet nuget add source ${{ github.workspace }}/nupkg -n local-rotativaio
+
+      - name: Smoke test each target framework
+        run: |
+          set -e
+          version=$(grep -oPm1 '(?<=<PackageVersion>)[^<]+' Rotativaio.AspNetCore.csproj)
+          echo "Testing package version $version"
+          for tfm in netcoreapp3.1 net5 net6 net7 net8; do
+            echo "=== $tfm ==="
+            dotnet run --project smoke-test -f "$tfm" -p:RotativaioPackageVersion="$version"
+          done
+
+  smoke-test-netfx:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pack Rotativaio.AspNetCore
+        run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg
+
+      - name: Add local package source
+        run: dotnet nuget add source ${{ github.workspace }}\nupkg -n local-rotativaio
+
+      - name: Smoke test net472 (.NET Framework consumer)
+        shell: bash
+        run: |
+          set -e
+          version=$(grep -oPm1 '(?<=<PackageVersion>)[^<]+' Rotativaio.AspNetCore.csproj)
+          echo "Testing package version $version"
+          dotnet run --project smoke-test-netfx -p:RotativaioPackageVersion="$version"

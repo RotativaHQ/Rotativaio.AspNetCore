@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>netcoreapp3.1;net5;net6;net7;net8</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<LangVersion>10.0</LangVersion>
+		<RotativaioPackageVersion Condition="'$(RotativaioPackageVersion)' == ''">1.6.2-beta</RotativaioPackageVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Rotativaio.AspNetCore" Version="$(RotativaioPackageVersion)" />
+	</ItemGroup>
+
+</Project>
