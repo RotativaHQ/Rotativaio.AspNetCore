@@ -23,6 +23,7 @@ jobs:
             6.0.x
             7.0.x
             8.0.x
+            10.0.x
 
       - name: Pack Rotativaio.AspNetCore
         run: dotnet pack Rotativaio.AspNetCore.csproj -c Release -o ./nupkg -p:GeneratePackageOnBuild=false
@@ -35,7 +36,7 @@ jobs:
           set -e
           version=$(grep -oPm1 '(?<=<PackageVersion>)[^<]+' Rotativaio.AspNetCore.csproj)
           echo "Testing package version $version"
-          for tfm in netcoreapp3.1 net5 net6 net7 net8; do
+          for tfm in netcoreapp3.1 net5 net6 net7 net8 net10.0; do
             echo "=== $tfm ==="
             dotnet run --project smoke-test -f "$tfm" -p:RotativaioPackageVersion="$version"
           done

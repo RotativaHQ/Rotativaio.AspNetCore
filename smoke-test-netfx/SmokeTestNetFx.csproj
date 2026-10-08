@@ -4,7 +4,7 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net472</TargetFramework>
 		<LangVersion>10.0</LangVersion>
-		<RotativaioPackageVersion Condition="'$(RotativaioPackageVersion)' == ''">1.6.2-beta</RotativaioPackageVersion>
+		<RotativaioPackageVersion Condition="'$(RotativaioPackageVersion)' == ''">1.6.3-beta</RotativaioPackageVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
