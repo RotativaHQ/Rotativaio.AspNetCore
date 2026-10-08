@@ -5,19 +5,50 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotativaio.AspNetCore", "Rotativaio.AspNetCore.csproj", "{382CA55A-C1AB-4765-AA29-56AA7972FCA7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "smoke-test-netfx", "smoke-test-netfx", "{055B2344-0480-2B8E-2E09-1B4D26098349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeTestNetFx", "smoke-test-netfx\SmokeTestNetFx.csproj", "{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|x64.Build.0 = Debug|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Debug|x86.Build.0 = Debug|Any CPU
 		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|x64.ActiveCfg = Release|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|x64.Build.0 = Release|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|x86.ActiveCfg = Release|Any CPU
+		{382CA55A-C1AB-4765-AA29-56AA7972FCA7}.Release|x86.Build.0 = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|x64.Build.0 = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Debug|x86.Build.0 = Debug|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|x64.Build.0 = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2686EC98-35AC-4C6D-A8CB-45E7050B98AB} = {055B2344-0480-2B8E-2E09-1B4D26098349}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E84C7D0F-CE1E-4F62-BC72-B1B695B80589}
