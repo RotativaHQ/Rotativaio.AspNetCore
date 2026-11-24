@@ -7,15 +7,15 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Rotativaio.AspNetCore</PackageId>
-		<PackageVersion>1.6.4-beta</PackageVersion>
+		<PackageVersion>1.6.5-beta</PackageVersion>
 		<Authors>Giorgio Bozio</Authors>
 		<Description>Rotativa.io client for Asp.Net Core</Description>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Security: updated System.Security.Cryptography.Xml to 10.0.13 and Microsoft.AspNetCore.WebUtilities to 2.3.14 (DoS vulnerabilities)</PackageReleaseNotes>
+		<PackageReleaseNotes>Clear exceptions for 401 and other error responses from rotativa.io (previously surfaced as JsonReaderException).</PackageReleaseNotes>
 		<Copyright>Copyright 2024 (c) Viva Software di Bozio Giorgio. All rights reserved.</Copyright>
 		<PackageTags>PDF AspNetCore</PackageTags>
 		<NeutralLanguage />
-		<Version>1.6.4-beta</Version>
+		<Version>1.6.5-beta</Version>
 		<PackageProjectUrl>https://rotativa.io/</PackageProjectUrl>
 		<PackageLicense>MIT</PackageLicense>
 		<RepositoryUrl>https://github.com/RotativaHQ/Rotativaio.AspNetCore.git</RepositoryUrl>
@@ -23,7 +23,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<EnablePackageValidation>true</EnablePackageValidation>
-		<PackageValidationBaselineVersion>1.6.3-beta</PackageValidationBaselineVersion>
+		<PackageValidationBaselineVersion>1.6.4-beta</PackageValidationBaselineVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
