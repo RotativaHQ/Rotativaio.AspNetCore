@@ -7,15 +7,15 @@
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Rotativaio.AspNetCore</PackageId>
-		<PackageVersion>1.6.3-beta</PackageVersion>
+		<PackageVersion>1.6.4-beta</PackageVersion>
 		<Authors>Giorgio Bozio</Authors>
 		<Description>Rotativa.io client for Asp.Net Core</Description>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Added .NET 10 target</PackageReleaseNotes>
+		<PackageReleaseNotes>Security: updated System.Security.Cryptography.Xml to 10.0.13 and Microsoft.AspNetCore.WebUtilities to 2.3.14 (DoS vulnerabilities)</PackageReleaseNotes>
 		<Copyright>Copyright 2024 (c) Viva Software di Bozio Giorgio. All rights reserved.</Copyright>
 		<PackageTags>PDF AspNetCore</PackageTags>
 		<NeutralLanguage />
-		<Version>1.6.3-beta</Version>
+		<Version>1.6.4-beta</Version>
 		<PackageProjectUrl>https://rotativa.io/</PackageProjectUrl>
 		<PackageLicense>MIT</PackageLicense>
 		<RepositoryUrl>https://github.com/RotativaHQ/Rotativaio.AspNetCore.git</RepositoryUrl>
@@ -23,7 +23,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<EnablePackageValidation>true</EnablePackageValidation>
-		<PackageValidationBaselineVersion>1.6.2-beta</PackageValidationBaselineVersion>
+		<PackageValidationBaselineVersion>1.6.3-beta</PackageValidationBaselineVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,12 +44,13 @@
 	<ItemGroup>
 		<PackageReference Include="AngleSharp" Version="1.7.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.11" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.3.14" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="protobuf-net" Version="3.2.56" />
 		<PackageReference Include="protobuf-net.Core" Version="3.2.56" />
 		<PackageReference Include="System.Drawing.Common" Version="10.0.10" />
 		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-		<PackageReference Include="System.Security.Cryptography.Xml" Version="10.0.10" />
+		<PackageReference Include="System.Security.Cryptography.Xml" Version="10.0.13" />
 		<PackageReference Include="System.Text.Encodings.Web" Version="10.0.10" />
 		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
 		<None Include="README.md" Pack="true" PackagePath="\" />
