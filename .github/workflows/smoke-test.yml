@@ -9,7 +9,7 @@ on:
 
 jobs:
   smoke-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # ubuntu-26.04 ships an ICU that the netcoreapp3.1 runtime cannot load
 
     steps:
       - uses: actions/checkout@v4
