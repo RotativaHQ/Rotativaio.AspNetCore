@@ -139,16 +139,7 @@ namespace Rotativaio.AspNetCore
                             HttpResponseMessage response =
                                 httpClient.SendAsync(request, new CancellationTokenSource().Token).Result)
                         {
-                            var httpResponseMessage = response;
-                            var result = response.Content.ReadAsStringAsync();
-                            var jsonReponse = JObject.Parse(result.Result);
-                            if (response.StatusCode == HttpStatusCode.Unauthorized)
-                            {
-                                var error = jsonReponse["error"].Value<string>();
-                                throw new UnauthorizedAccessException(error);
-                            }
-                            var pdfUrl = jsonReponse["pdfUrl"].Value<string>(); // 
-                            return pdfUrl;
+                            return ReadPdfUrl(response);
                         }
                     }
                 }
@@ -171,22 +162,64 @@ namespace Rotativaio.AspNetCore
                             HttpResponseMessage response =
                                 httpClient.SendAsync(request, new CancellationTokenSource().Token).Result)
                         {
-                            var httpResponseMessage = response;
-                            var result = response.Content.ReadAsStringAsync();
-                            var jsonReponse = JObject.Parse(result.Result);
-                            if (response.StatusCode == HttpStatusCode.Unauthorized)
-                            {
-                                var error = jsonReponse["error"].Value<string>();
-                                throw new UnauthorizedAccessException(error);
-                            }
-                            var pdfUrl = jsonReponse["pdfUrl"].Value<string>(); // 
-                            return pdfUrl;
+                            return ReadPdfUrl(response);
                         }
                     }
                 }
             }
 
 
+        }
+
+        /// <summary>
+        /// Reads the pdfUrl from a rotativa.io response, checking the HTTP status first so that
+        /// error responses with an empty or non-JSON body produce a meaningful exception.
+        /// </summary>
+        internal static string ReadPdfUrl(HttpResponseMessage response)
+        {
+            var body = response.Content.ReadAsStringAsync().Result;
+            JObject? json = null;
+            if (!string.IsNullOrWhiteSpace(body))
+            {
+                try
+                {
+                    json = JObject.Parse(body);
+                }
+                catch (Newtonsoft.Json.JsonReaderException)
+                {
+                    // Not JSON (e.g. an HTML error page from a proxy): handled below.
+                }
+            }
+            var error = json?["error"]?.Type == JTokenType.String ? json["error"]!.Value<string>() : null;
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                throw new UnauthorizedAccessException(string.IsNullOrEmpty(error)
+                    ? "rotativa.io rejected the request (401 Unauthorized): check the configured API key and endpoint."
+                    : error);
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var detail = error;
+                if (string.IsNullOrEmpty(detail) && !string.IsNullOrWhiteSpace(body))
+                {
+                    detail = body.Length > 500 ? body.Substring(0, 500) + "..." : body;
+                }
+                throw new HttpRequestException(string.Format("rotativa.io returned {0} {1}{2}",
+                    (int)response.StatusCode,
+                    response.ReasonPhrase,
+                    string.IsNullOrEmpty(detail) ? "." : ": " + detail));
+            }
+
+            var pdfUrl = json?["pdfUrl"]?.Type == JTokenType.String ? json["pdfUrl"]!.Value<string>() : null;
+            if (string.IsNullOrEmpty(pdfUrl))
+            {
+                throw new InvalidOperationException(
+                    "rotativa.io returned a successful response without a pdfUrl" +
+                    (string.IsNullOrEmpty(error) ? "." : ": " + error));
+            }
+            return pdfUrl!;
         }
 
         /// <summary>

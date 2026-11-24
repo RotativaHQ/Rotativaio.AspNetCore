@@ -11,7 +11,7 @@
 		<Authors>Giorgio Bozio</Authors>
 		<Description>Rotativa.io client for Asp.Net Core</Description>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>Security: updated System.Security.Cryptography.Xml to 10.0.13 and Microsoft.AspNetCore.WebUtilities to 2.3.14 (DoS vulnerabilities)</PackageReleaseNotes>
+		<PackageReleaseNotes>Security: updated System.Security.Cryptography.Xml to 10.0.13 and Microsoft.AspNetCore.WebUtilities to 2.3.14 (DoS vulnerabilities). Clear exceptions for 401 and other error responses from rotativa.io.</PackageReleaseNotes>
 		<Copyright>Copyright 2024 (c) Viva Software di Bozio Giorgio. All rights reserved.</Copyright>
 		<PackageTags>PDF AspNetCore</PackageTags>
 		<NeutralLanguage />
